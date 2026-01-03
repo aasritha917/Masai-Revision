@@ -8,7 +8,6 @@ class FileWatcher extends EventEmitter {
     this.dirPath = dirPath;
     this.files = new Set();
 
-    // store initial files
     fs.readdirSync(dirPath).forEach(file => {
       this.files.add(file);
     });
@@ -23,7 +22,7 @@ class FileWatcher extends EventEmitter {
         const time = new Date().toLocaleTimeString();
 
         fs.stat(filePath, (err) => {
-          // file deleted
+        
           if (err) {
             if (this.files.has(filename)) {
               this.files.delete(filename);
@@ -32,12 +31,11 @@ class FileWatcher extends EventEmitter {
             return;
           }
 
-          // file added
           if (!this.files.has(filename)) {
             this.files.add(filename);
             this.emit("added", filename, time);
           } 
-          // file modified
+          
           else {
             this.emit("modified", filename, time);
           }
@@ -49,7 +47,6 @@ class FileWatcher extends EventEmitter {
   }
 }
 
-// ===== Usage =====
 
 const watcher = new FileWatcher("./watch-folder");
 
