@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  width: 400px;
+  margin: auto;
+}
+
+.card, .summary {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+button {
+  margin-right: 10px;
+}
+
+.nav {
+  margin-top: 10px;
+}
