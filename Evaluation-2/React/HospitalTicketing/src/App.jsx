@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import patientsData from "./data/patients";
+import patientsData from "./Data/patients";
 import { storageKeys } from "./utils/storageKeys";
 import PatientCard from "./components/PatientCard";
 import Navigation from "./components/Navigation";
